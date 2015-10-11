@@ -38,6 +38,14 @@
     <Compile Include="Source\Map\Overlays\MapOverlay.cs" />
     <Compile Include="Source\REST\RestRequests.cs" />
     <Compile Include="Source\Helper.cs" />
+    <Compile Include="Source\REST\Error.cs" />
+    <Compile Include="Source\DataModel\Tag.cs" />
+    <Compile Include="Source\DataModel\Category.cs" />
+    <Compile Include="Source\DataModel\Company.cs" />
+    <Compile Include="Source\DataModel\Contact.cs" />
+    <Compile Include="Source\DataModel\Direction.cs" />
+    <Compile Include="Source\DataModel\Session.cs" />
+    <Compile Include="Source\DataModel\RESTApi.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -63,5 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\" />
+    <Folder Include="Source\DataModel\" />
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@ namespace pcl
 {
 	public class Helper
 	{
+		public const string URL_HOST = "";
 		public Helper ()
 		{
 		}

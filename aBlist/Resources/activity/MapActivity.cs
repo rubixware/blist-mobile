@@ -15,18 +15,19 @@ using Android.Gms.Maps.Model;
 
 namespace aBlist
 {	
+	[Activity (Label = "aBlist", MainLauncher = true)]
 	public class MapActivity : Activity, pcl.IMap
 	{
-		protected GoogleMap map;
-		protected CameraUpdate cameraUpdate;
-		protected IList<Marker> listMarkers = new List<Marker>();
+		 GoogleMap map;
+		private CameraUpdate cameraUpdate;
+		private IList<Marker> listMarkers = new List<Marker>();
 
 		// User values
-		protected IList<pcl.Marker> ListMarkers = new List<pcl.Marker>();
-		protected pcl.Marker markerForInitRegion;
+		private IList<pcl.Marker> ListMarkers = new List<pcl.Marker>();
+		private pcl.Marker markerForInitRegion;
 
-		protected const int MAP_VIEW_ZOOM_INIT = 3;
-		protected const int MAP_VIEW_ZOOM_MARK = 16;
+		private const int MAP_VIEW_ZOOM_INIT = 3;
+		private const int MAP_VIEW_ZOOM_MARK = 16;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -103,17 +104,17 @@ namespace aBlist
 			}
 		}
 
-		protected void OnMapMarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
+		public void OnMapMarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
 		{
 
 		}
 
-		protected void OnMapClick(object sender, GoogleMap.MapClickEventArgs e)
+		private void OnMapClick(object sender, GoogleMap.MapClickEventArgs e)
 		{
 
 		}
 
-		protected void MapLongClick(object sender, GoogleMap.MapLongClickEventArgs e)
+		private void MapLongClick(object sender, GoogleMap.MapLongClickEventArgs e)
 		{
 
 		}

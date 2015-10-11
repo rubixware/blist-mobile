@@ -3,8 +3,12 @@ using Newtonsoft.Json;
 
 namespace pcl
 {
-	public class Mobile
+	public abstract class Mobile
 	{
+		public interface IMobile
+		{
+			string Data { get; set; }
+		}
 		[JsonProperty ("name")]
 		public string Name { get; set; }
 		[JsonProperty ("id")]
@@ -12,6 +16,8 @@ namespace pcl
 		public bool Selected { get; set; }
 		public string Title { get; set; }
 		public string SubTitle { get; set; }
+		[JsonIgnore]
+		protected string url;
 
 		public Mobile ()
 		{
