@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace pcl
 {
-	public class Tag : Mobile
+	public class Tag : Mobile, IMobile
 	{
 		public Tag ()
 		{

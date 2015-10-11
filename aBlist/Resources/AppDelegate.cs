@@ -21,6 +21,18 @@ namespace aBlist
 			}
 			return Resource.Drawable.Icon;
 		}
+
+		public static System.Collections.Generic.List<ImageDownloaded> listImagesDonwloaded =
+			new System.Collections.Generic.List<ImageDownloaded>();
+	}
+
+	public class ImageDownloaded
+	{
+		public ImageDownloaded(){}
+
+		public int Id { get; set; }
+		public Android.Graphics.Bitmap Bitmap { get; set; }
+
 	}
 }
 

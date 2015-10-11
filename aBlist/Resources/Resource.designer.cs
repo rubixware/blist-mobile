@@ -26,6 +26,7 @@ namespace aBlist
 		
 		public static void UpdateIdValues()
 		{
+			global::ModernHttpClient.Resource.String.library_name = global::aBlist.Resource.String.library_name;
 		}
 		
 		public partial class Attribute
@@ -292,9 +293,6 @@ namespace aBlist
 			// aapt resource value: 0x7f080006
 			public const int adjust_width = 2131230726;
 			
-			// aapt resource value: 0x7f08002c
-			public const int button1 = 2131230764;
-			
 			// aapt resource value: 0x7f080030
 			public const int editTextSearch = 2131230768;
 			
@@ -307,6 +305,9 @@ namespace aBlist
 			// aapt resource value: 0x7f080031
 			public const int imageButtonTagSearch = 2131230769;
 			
+			// aapt resource value: 0x7f080026
+			public const int imageView = 2131230758;
+			
 			// aapt resource value: 0x7f080009
 			public const int imageView1 = 2131230729;
 			
@@ -318,9 +319,6 @@ namespace aBlist
 			
 			// aapt resource value: 0x7f08000f
 			public const int imageViewCategory = 2131230735;
-			
-			// aapt resource value: 0x7f080026
-			public const int imageViewContentImage = 2131230758;
 			
 			// aapt resource value: 0x7f08000c
 			public const int imageViewFacebook = 2131230732;
@@ -358,6 +356,9 @@ namespace aBlist
 			// aapt resource value: 0x7f080023
 			public const int linearLayoutCollaborators = 2131230755;
 			
+			// aapt resource value: 0x7f08002d
+			public const int linearLayoutCompanies = 2131230765;
+			
 			// aapt resource value: 0x7f080007
 			public const int linearLayoutCompanyInfo = 2131230727;
 			
@@ -376,14 +377,14 @@ namespace aBlist
 			// aapt resource value: 0x7f080011
 			public const int linearLayoutTag = 2131230737;
 			
+			// aapt resource value: 0x7f08002c
+			public const int linearLayoutTagSearch = 2131230764;
+			
 			// aapt resource value: 0x7f08002b
-			public const int linearLayoutTagSearch = 2131230763;
+			public const int linearLayoutTagsList = 2131230763;
 			
 			// aapt resource value: 0x7f080024
 			public const int listView1 = 2131230756;
-			
-			// aapt resource value: 0x7f08002d
-			public const int listViewCompanies = 2131230765;
 			
 			// aapt resource value: 0x7f08002a
 			public const int mapContainer = 2131230762;
@@ -490,8 +491,8 @@ namespace aBlist
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040023
-			public const int app_name = 2130968611;
+			// aapt resource value: 0x7f040024
+			public const int app_name = 2130968612;
 			
 			// aapt resource value: 0x7f040001
 			public const int auth_google_play_services_client_facebook_display_name = 2130968577;
@@ -595,8 +596,11 @@ namespace aBlist
 			// aapt resource value: 0x7f04001d
 			public const int common_signin_button_text_long = 2130968605;
 			
+			// aapt resource value: 0x7f040023
+			public const int hello = 2130968611;
+			
 			// aapt resource value: 0x7f040022
-			public const int hello = 2130968610;
+			public const int library_name = 2130968610;
 			
 			static String()
 			{

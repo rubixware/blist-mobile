@@ -11,6 +11,7 @@ namespace pcl
 		string Title { get; set; }
 		string SubTitle { get; set; }
 		string ImageName { get; set; }
+		string ImageUrl { get; set; }
 	}
 
 	public abstract class Mobile: IMobile
@@ -23,6 +24,8 @@ namespace pcl
 		public string Title { get; set; }
 		public string SubTitle { get; set; }
 		public string ImageName { get; set; }
+		[JsonProperty ("image_url")]
+		public string ImageUrl { get; set; }
 		[JsonIgnore]
 		protected string url;
 

@@ -3,10 +3,8 @@ using Newtonsoft.Json;
 
 namespace pcl
 {
-	public class Company : Mobile
+	public class Company : Mobile, IMobile
 	{
-		[JsonProperty ("image_url")]
-		public string ImageUrl { get; set; }
 		[JsonProperty ("description")]
 		public string Description { get; set; }
 		[JsonProperty ("category_id")]

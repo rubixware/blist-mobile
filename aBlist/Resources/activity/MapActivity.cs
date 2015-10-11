@@ -16,11 +16,12 @@ using System.Security.Policy;
 using Android.Graphics;
 using Java.Net;
 using Android.Views.InputMethods;
+using Java.Lang;
 
 namespace aBlist
 {	
 	[Activity (Label = "aBlist", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-	public class MapActivity : Activity, pcl.IMap
+	public class MapActivity : Activity, pcl.IMap, IDialogInterfaceOnDismissListener, IDialogInterfaceOnCancelListener
 	{
 		 GoogleMap map;
 		private CameraUpdate cameraUpdate;
@@ -33,14 +34,19 @@ namespace aBlist
 		private const int MAP_VIEW_ZOOM_INIT = 3;
 		private const int MAP_VIEW_ZOOM_MARK = 16;
 
+		// Tags
+		ArrayAdapter<pcl.IMobile> arrayAdapter;
+		ListView listViewTags;
+		Dialog dialogTags;
+
 		// Companies
-		private ArrayAdapter<pcl.Company> adapterListCompanies;
-		private ListView listView;
-		private List<pcl.Company> listCompanies = new List<pcl.Company> ();
+		private List<pcl.IMobile> listCompanies = new List<pcl.IMobile>();
+		private ListView listViewCompanies;
 
 		public static pcl.Company ItemSelectedFromListView;
 
 		private bool searchState = false;
+		private bool showCompaniesState = false;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -50,7 +56,7 @@ namespace aBlist
 			// Init Map
 			InitMap ();
 
-			this.listView = new ListView (this);
+			//this.listViewCompanies = FindViewById<ListView> (Resource.Id.listViewCompanies);
 
 			// Action Bar Custom Navigation Bar
 			ActionBar.SetDisplayShowHomeEnabled (false);
@@ -67,8 +73,12 @@ namespace aBlist
 					ActionBar.CustomView.FindViewById<TextView> (Resource.Id.textViewTitle).Visibility = ViewStates.Gone;
 				ActionBar.CustomView.FindViewById<EditText> (Resource.Id.editTextSearch).Visibility = ViewStates.Visible;
 				FindViewById<TextView> (Resource.Id.editTextSearch).RequestFocus ();
-
 			};
+
+			// Categories
+			FindViewById<ImageButton> (Resource.Id.imageButtonTagSearch).Click += ShowCategoriesDialog;
+			InitCategories ();
+
 		}
 
 		private void OpenKeyBoard()
@@ -80,7 +90,9 @@ namespace aBlist
 		private void CloseKeyBoard()
 		{
 			InputMethodManager imm = (InputMethodManager) this.GetSystemService(Context.InputMethodService);
-			imm.HideSoftInputFromWindow (this.CurrentFocus.WindowToken, Android.Views.InputMethods.HideSoftInputFlags.None);
+			if (this.CurrentFocus != null && this.CurrentFocus.WindowToken != null) {
+				imm.HideSoftInputFromWindow (this.CurrentFocus.WindowToken, Android.Views.InputMethods.HideSoftInputFlags.None);	
+			}
 			//imm.ToggleSoftInput (Android.Views.InputMethods.ShowFlags., Android.Views.InputMethods.HideSoftInputFlags.None );
 		}
 		private void ResetNavigationControlState()
@@ -157,7 +169,14 @@ namespace aBlist
 
 		public void OnMapMarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
 		{
-
+//			if (this.listView != null && this.listView.Count > 0) {
+//				foreach (var marker in listMarkers) {
+//					if (marker.Equals (e.Marker)) {
+//						// TODO
+//					}
+//				}
+//			}
+			
 		}
 
 		public void OnMapClick(object sender, GoogleMap.MapClickEventArgs e)
@@ -165,6 +184,9 @@ namespace aBlist
 			if (this.searchState) {
 				CloseKeyBoard ();
 				this.ResetNavigationControlState ();
+			}
+			if (this.showCompaniesState) {
+				ShowListViewCompanies (false);
 			}
 		}
 
@@ -180,19 +202,102 @@ namespace aBlist
 			}
 		}
 
-		private void InitComanies()
+		private void InitCategories()
 		{
-			this.adapterListCompanies = new ArrayAdapter<pcl.Company> (this, Android.Resource.Layout.SimpleListItemChecked,
-				Android.Resource.Id.Text1, this.listCompanies);
-			this.listView.Adapter = this.adapterListCompanies;
-			this.listView.ChoiceMode = ChoiceMode.Multiple;
-			this.listView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
-				// TODO
-				//this.listDevices[e.Position].Selected = !this.listDevices[e.Position].Selected;
-				ItemSelectedFromListView = this.listCompanies[e.Position];
-
-				StartActivity (typeof(CompanyInfo));
+			this.listViewTags = new ListView (this);
+			this.arrayAdapter = new ArrayAdapter<pcl.IMobile> (this, Android.Resource.Layout.SimpleListItemChecked,
+				Android.Resource.Id.Text1, AppDelegate.Categories);
+			this.listViewTags.Adapter = this.arrayAdapter;
+			this.listViewTags.ChoiceMode = ChoiceMode.Multiple;
+			this.listViewTags.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
+				
+				AppDelegate.Categories[e.Position].Selected = !AppDelegate.Categories[e.Position].Selected;
 			};
+			InitAlertDialogCategories ();
+		}
+
+		private void InitAlertDialogCategories()
+		{
+			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+			alertDialog.SetTitle("Categorías");
+			alertDialog.SetView (this.listViewTags);
+			alertDialog.SetPositiveButton ("Cerrar", delegate {
+				SearchCompanies();
+			});
+			alertDialog.NothingSelected += delegate(object sender, AdapterView.NothingSelectedEventArgs e) {
+				Console.WriteLine ();
+			};
+			//alertDialog.SetOnDismissListener (this);
+			alertDialog.SetOnCancelListener (this);
+			dialogTags = alertDialog.Create ();
+		}
+
+		public void OnDismiss (IDialogInterface dialog)
+		{
+			// Console.WriteLine ("OnDismiss"); API 17+
+		}
+
+		public void OnCancel (IDialogInterface dialog)
+		{
+			Console.WriteLine ("OnCancel");
+			SearchCompanies ();
+		}
+
+		private void SearchCompanies()
+		{
+			FindViewById<LinearLayout> (Resource.Id.linearLayoutCompanies).RemoveAllViews ();
+			this.listViewCompanies = new ListView (this);
+			FindViewById<LinearLayout> (Resource.Id.linearLayoutCompanies).AddView (this.listViewCompanies);
+			this.listCompanies.Clear ();
+			DefineCompanies ();
+
+			var listAdapter = new CompaniesListViewAdapter (this, this.listCompanies);
+			this.listViewCompanies.Adapter = listAdapter;
+			this.listViewCompanies.ChoiceMode = ChoiceMode.Single;
+			this.listViewCompanies.ItemClick += OnListItemClick;
+
+			ShowListViewCompanies (true);
+		}
+
+		private void ShowListViewCompanies(bool state)
+		{
+			ViewStates viewStates = state ? ViewStates.Visible : ViewStates.Gone;
+			this.listViewCompanies.Visibility = viewStates;
+			this.showCompaniesState = state;
+		}
+		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
+		{
+			foreach (var company in AppDelegate.Companies) {
+				if (company.Id.Equals (this.listCompanies[e.Position].Id)) {
+					ItemSelectedFromListView = company;
+					break;
+				}
+			}
+			ShowListViewCompanies (false);
+
+			StartActivity (typeof(CompanyInfo));
+		}
+
+		private void DefineCompanies()
+		{
+			foreach (var company in AppDelegate.Companies) {
+				company.Title = company.Name;
+				company.SubTitle = company.TagDesription;
+				foreach (var category in AppDelegate.Categories) {
+					if (category.Selected && company.CategoryId.Equals (category.Id)) {
+						this.listCompanies.Add (company);
+						break;
+					}
+				}
+			}
+			if (this.listCompanies.Count == 0) {
+				this.listCompanies.AddRange (AppDelegate.Companies);
+			}
+		}
+		// This function is used only once, so no validations
+		private void ShowCategoriesDialog(object sender, EventArgs e)
+		{
+			dialogTags.Show();
 		}
 
 //		private Bitmap downloadBitmap(String url) {

@@ -3,10 +3,8 @@ using Newtonsoft.Json;
 
 namespace pcl
 {
-	public class Category : Mobile
+	public class Category : Mobile, IMobile
 	{
-		
-
 		public Category ()
 		{
 		}
@@ -53,6 +51,12 @@ namespace pcl
 
 			throw new Exception (data);
 		}
+
+		public override string ToString ()
+		{
+			return Name;
+		}
+		
 	}
 }
 

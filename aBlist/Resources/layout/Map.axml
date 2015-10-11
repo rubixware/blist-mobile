@@ -19,32 +19,22 @@
         android:minHeight="25px"
         android:layout_width="200dp"
         android:layout_height="match_parent"
-        android:id="@+id/linearLayout1"
+        android:id="@+id/linearLayoutTagsList"
         android:layout_alignParentRight="true">
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/linearLayoutTagSearch">
-            <ImageView
-                android:src="@drawable/tag"
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <Button
-                android:text="Button"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/button1"
-                android:layout_marginRight="10dp" />
-            <ListView
+            <LinearLayout
+                android:orientation="vertical"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/listViewCompanies" />
+                android:id="@+id/linearLayoutCompanies" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
