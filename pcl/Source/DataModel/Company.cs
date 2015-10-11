@@ -9,6 +9,8 @@ namespace pcl
 		public string Description { get; set; }
 		[JsonProperty ("category_id")]
 		public int CategoryId { get; set; }
+		[JsonProperty ("category")]
+		public int Category { get; set; }
 		[JsonProperty ("tags")]
 		public System.Collections.Generic.List<Tag> Tags { get; set; }
 		[JsonProperty ("contact_id")]
@@ -17,6 +19,17 @@ namespace pcl
 		public Direction AdressId { get; set; }
 		[JsonProperty ("email")]
 		public Session Email { get; set; }
+		[JsonProperty ("contact_email")]
+		public Session ContactEmail { get; set; }
+		[JsonProperty ("phone")]
+		public Session Phone { get; set; }
+		[JsonProperty ("twitter")]
+		public Session Twitter { get; set; }
+		[JsonProperty ("facebook")]
+		public Session Facebook { get; set; }
+		[JsonProperty ("website")]
+		public Session website { get; set; }
+
 
 		public Company ()
 		{

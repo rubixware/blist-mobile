@@ -231,6 +231,9 @@ namespace aBlist
 			// aapt resource value: 0x7f02001a
 			public const int Icon = 2130837530;
 			
+			// aapt resource value: 0x7f02001b
+			public const int splash = 2130837531;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -244,32 +247,32 @@ namespace aBlist
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070005
-			public const int adjust_height = 2131165189;
+			// aapt resource value: 0x7f080005
+			public const int adjust_height = 2131230725;
 			
-			// aapt resource value: 0x7f070006
-			public const int adjust_width = 2131165190;
+			// aapt resource value: 0x7f080006
+			public const int adjust_width = 2131230726;
 			
-			// aapt resource value: 0x7f070008
-			public const int button1 = 2131165192;
+			// aapt resource value: 0x7f080008
+			public const int button1 = 2131230728;
 			
-			// aapt resource value: 0x7f070000
-			public const int hybrid = 2131165184;
+			// aapt resource value: 0x7f080000
+			public const int hybrid = 2131230720;
 			
-			// aapt resource value: 0x7f070007
-			public const int mapContainer = 2131165191;
+			// aapt resource value: 0x7f080007
+			public const int mapContainer = 2131230727;
 			
-			// aapt resource value: 0x7f070001
-			public const int none = 2131165185;
+			// aapt resource value: 0x7f080001
+			public const int none = 2131230721;
 			
-			// aapt resource value: 0x7f070002
-			public const int normal = 2131165186;
+			// aapt resource value: 0x7f080002
+			public const int normal = 2131230722;
 			
-			// aapt resource value: 0x7f070003
-			public const int satellite = 2131165187;
+			// aapt resource value: 0x7f080003
+			public const int satellite = 2131230723;
 			
-			// aapt resource value: 0x7f070004
-			public const int terrain = 2131165188;
+			// aapt resource value: 0x7f080004
+			public const int terrain = 2131230724;
 			
 			static Id()
 			{
@@ -430,6 +433,22 @@ namespace aBlist
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int Theme_Splash = 2131165184;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

@@ -15,7 +15,7 @@ using Android.Gms.Maps.Model;
 
 namespace aBlist
 {	
-	[Activity (Label = "aBlist", MainLauncher = true)]
+	[Activity (Label = "aBlist", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
 	public class MapActivity : Activity, pcl.IMap
 	{
 		 GoogleMap map;
@@ -24,7 +24,7 @@ namespace aBlist
 
 		// User values
 		private IList<pcl.Marker> ListMarkers = new List<pcl.Marker>();
-		private pcl.Marker markerForInitRegion;
+		private pcl.Marker markerForInitRegion = null;
 
 		private const int MAP_VIEW_ZOOM_INIT = 3;
 		private const int MAP_VIEW_ZOOM_MARK = 16;
@@ -109,12 +109,12 @@ namespace aBlist
 
 		}
 
-		private void OnMapClick(object sender, GoogleMap.MapClickEventArgs e)
+		public void OnMapClick(object sender, GoogleMap.MapClickEventArgs e)
 		{
 
 		}
 
-		private void MapLongClick(object sender, GoogleMap.MapLongClickEventArgs e)
+		public void MapLongClick(object sender, GoogleMap.MapLongClickEventArgs e)
 		{
 
 		}
