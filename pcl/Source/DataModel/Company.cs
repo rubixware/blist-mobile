@@ -44,6 +44,20 @@ namespace pcl
 
 			throw new Exception (data);
 		}
+
+		public static Company RequestData(int id)
+		{
+			bool status = false;
+
+			string data = RestRequests.GetData (string.Format ("{0}/{1}", URL, id), out status);
+
+			if (status) {
+				return JsonConvert.DeserializeObject<Company>(data, new JsonSerializerSettings () {
+					NullValueHandling = NullValueHandling.Ignore});
+			}
+
+			throw new Exception (data);
+		}
 	}
 }
 
