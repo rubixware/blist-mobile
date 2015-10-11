@@ -78,10 +78,4 @@
   <ItemGroup>
     <Folder Include="Resources\activity\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\pcl\pcl.csproj">
-      <Project>{456C2EE7-DB52-422B-A77B-AD172CF6A196}</Project>
-      <Name>pcl</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
