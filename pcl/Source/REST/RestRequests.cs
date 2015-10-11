@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Net;
 
-namespace pclSGlocalizacion
+namespace pcl
 {
 	public static class RestRequests
 	{
@@ -22,7 +22,7 @@ namespace pclSGlocalizacion
 				string dataToSend = JsonConvert.SerializeObject (data, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 				
 				// Add authentication token to params content
-				dataToSend = JsonCore.AddValue (dataToSend, Credentials.ACCESS_TOKEN_KEY, "");
+				//dataToSend = Helper.AddValue (dataToSend, Credentials.ACCESS_TOKEN_KEY, "");
 				
 				// Create content body
 				HttpContent httpContent = new StringContent (dataToSend, System.Text.Encoding.UTF8, "application/json");

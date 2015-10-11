@@ -37,6 +37,7 @@
     <Compile Include="Source\Map\Marker.cs" />
     <Compile Include="Source\Map\Overlays\MapOverlay.cs" />
     <Compile Include="Source\REST\RestRequests.cs" />
+    <Compile Include="Source\Helper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
