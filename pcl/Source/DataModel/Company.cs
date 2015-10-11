@@ -5,6 +5,8 @@ namespace pcl
 {
 	public class Company : Mobile
 	{
+		[JsonProperty ("image_url")]
+		public string ImageUrl { get; set; }
 		[JsonProperty ("description")]
 		public string Description { get; set; }
 		[JsonProperty ("category_id")]
@@ -13,33 +15,51 @@ namespace pcl
 		public int Category { get; set; }
 		[JsonProperty ("tags")]
 		public System.Collections.Generic.List<string> Tags { get; set; }
-		[JsonProperty ("contact_id")]
-		public Contact ContactId { get; set; }
-		[JsonProperty ("address_id")]
-		public Direction AdressId { get; set; }
 		[JsonProperty ("email")]
-		public Session Email { get; set; }
+		public string Email { get; set; }
 		[JsonProperty ("contact_email")]
-		public Session ContactEmail { get; set; }
+		public string ContactEmail { get; set; }
+		[JsonProperty ("page")]
+		public string Page { get; set; }
 		[JsonProperty ("phone")]
-		public Session Phone { get; set; }
+		public string Phone { get; set; }
 		[JsonProperty ("twitter")]
-		public Session Twitter { get; set; }
+		public string Twitter { get; set; }
 		[JsonProperty ("facebook")]
-		public Session Facebook { get; set; }
+		public string Facebook { get; set; }
 		[JsonProperty ("website")]
-		public Session website { get; set; }
+		public string website { get; set; }
 		[JsonProperty ("latitude")]
-		public Session Latitude { get; set; }
+		public double Latitude { get; set; }
 		[JsonProperty ("longitude")]
-		public Session Longitude { get; set; }
+		public double Longitude { get; set; }
+		[JsonProperty ("street")]
+		public string Street { get; set; }
+		[JsonProperty ("suburb")]
+		public string Suburb { get; set; }
+		[JsonProperty ("city")]
+		public string City { get; set; }
+		[JsonProperty ("region")]
+		public string Region { get; set; }
+
+		[JsonIgnore]
+		public string TagDesription { get {
+				string message = "";
+				for (int i = 0; i < Tags.Count; i++) {
+					message += Tags [i];
+					if (i + 1 < Tags.Count) {
+						message += ", ";
+					}
+				}
+				return message;
+			} }
 
 		public Company ()
 		{
 		}
 
 		[JsonIgnore]
-		public string Url {
+		public static string Url {
 			get {
 				return Helper.URL_HOST + URL;
 			}
@@ -50,7 +70,7 @@ namespace pcl
 		{
 			bool status = false;
 
-			string data = RestRequests.GetData (URL, out status);
+			string data = RestRequests.GetData (Url, out status);
 
 			if (status) {
 				RESTApi request = JsonConvert.DeserializeObject<RESTApi>(data, new JsonSerializerSettings () {
@@ -65,7 +85,7 @@ namespace pcl
 		{
 			bool status = false;
 
-			string data = RestRequests.GetData (string.Format ("{0}/{1}", URL, id), out status);
+			string data = RestRequests.GetData (string.Format ("{0}/{1}", Url, id), out status);
 
 			if (status) {
 				return JsonConvert.DeserializeObject<Company>(data, new JsonSerializerSettings () {

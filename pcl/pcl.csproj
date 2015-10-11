@@ -42,8 +42,6 @@
     <Compile Include="Source\DataModel\Tag.cs" />
     <Compile Include="Source\DataModel\Category.cs" />
     <Compile Include="Source\DataModel\Company.cs" />
-    <Compile Include="Source\DataModel\Contact.cs" />
-    <Compile Include="Source\DataModel\Direction.cs" />
     <Compile Include="Source\DataModel\Session.cs" />
     <Compile Include="Source\DataModel\RESTApi.cs" />
   </ItemGroup>

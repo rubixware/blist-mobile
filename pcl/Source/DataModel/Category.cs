@@ -5,13 +5,13 @@ namespace pcl
 {
 	public class Category : Mobile
 	{
-		public string ImageName { get; set; }
+		
 
 		public Category ()
 		{
 		}
 
-		public static System.Collections.Generic.List<Category> Categories { get{ return new System.Collections.Generic.List<Category>{
+		public static System.Collections.Generic.List<IMobile> Categories { get{ return new System.Collections.Generic.List<IMobile>{
 					new Category(){
 						Id = 1,
 						Name = "Freelancer",

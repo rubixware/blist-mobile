@@ -58,6 +58,8 @@
     <Compile Include="Resources\activity\MapActivity.cs" />
     <Compile Include="Resources\activity\SplashActivity.cs" />
     <Compile Include="Resources\AppDelegate.cs" />
+    <Compile Include="Resources\activity\CompanyInfo.cs" />
+    <Compile Include="Resources\adapter\CompaniesListViewAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -120,11 +122,15 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_email.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_map.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_search.png" />
+    <AndroidResource Include="Resources\layout\NavigationActionBar.axml" />
+    <AndroidResource Include="Resources\layout\CompanyInfo.axml" />
+    <AndroidResource Include="Resources\layout\ListViewRowCompany.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Resources\activity\" />
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\adapter\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\pcl\pcl.csproj">

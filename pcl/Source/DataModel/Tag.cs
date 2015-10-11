@@ -10,7 +10,7 @@ namespace pcl
 		}
 
 		[JsonIgnore]
-		public string Url {
+		public static string Url {
 			get {
 				return Helper.URL_HOST + URL;
 			}
@@ -21,7 +21,7 @@ namespace pcl
 		{
 			bool status = false;
 
-			string data = RestRequests.GetData (URL, out status);
+			string data = RestRequests.GetData (Url, out status);
 
 			if (status) {
 				RESTApi request = JsonConvert.DeserializeObject<RESTApi>(data, new JsonSerializerSettings () {

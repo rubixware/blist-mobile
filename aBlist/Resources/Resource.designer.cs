@@ -292,14 +292,101 @@ namespace aBlist
 			// aapt resource value: 0x7f080006
 			public const int adjust_width = 2131230726;
 			
-			// aapt resource value: 0x7f080008
-			public const int button1 = 2131230728;
+			// aapt resource value: 0x7f08002c
+			public const int button1 = 2131230764;
+			
+			// aapt resource value: 0x7f080030
+			public const int editTextSearch = 2131230768;
 			
 			// aapt resource value: 0x7f080000
 			public const int hybrid = 2131230720;
 			
+			// aapt resource value: 0x7f08002f
+			public const int imageButtonSearch = 2131230767;
+			
+			// aapt resource value: 0x7f080031
+			public const int imageButtonTagSearch = 2131230769;
+			
+			// aapt resource value: 0x7f080009
+			public const int imageView1 = 2131230729;
+			
+			// aapt resource value: 0x7f08001b
+			public const int imageViewAbout = 2131230747;
+			
+			// aapt resource value: 0x7f08001e
+			public const int imageViewCall = 2131230750;
+			
+			// aapt resource value: 0x7f08000f
+			public const int imageViewCategory = 2131230735;
+			
+			// aapt resource value: 0x7f080026
+			public const int imageViewContentImage = 2131230758;
+			
+			// aapt resource value: 0x7f08000c
+			public const int imageViewFacebook = 2131230732;
+			
+			// aapt resource value: 0x7f080018
+			public const int imageViewMail = 2131230744;
+			
+			// aapt resource value: 0x7f080015
+			public const int imageViewMap = 2131230741;
+			
+			// aapt resource value: 0x7f080012
+			public const int imageViewTag = 2131230738;
+			
+			// aapt resource value: 0x7f08000b
+			public const int imageViewTwitter = 2131230731;
+			
+			// aapt resource value: 0x7f080027
+			public const int linearLayouContentDescription = 2131230759;
+			
+			// aapt resource value: 0x7f080025
+			public const int linearLayout1 = 2131230757;
+			
+			// aapt resource value: 0x7f08000a
+			public const int linearLayout2 = 2131230730;
+			
+			// aapt resource value: 0x7f08001a
+			public const int linearLayoutAbout = 2131230746;
+			
+			// aapt resource value: 0x7f08001d
+			public const int linearLayoutCall = 2131230749;
+			
+			// aapt resource value: 0x7f08000e
+			public const int linearLayoutCategory = 2131230734;
+			
+			// aapt resource value: 0x7f080023
+			public const int linearLayoutCollaborators = 2131230755;
+			
 			// aapt resource value: 0x7f080007
-			public const int mapContainer = 2131230727;
+			public const int linearLayoutCompanyInfo = 2131230727;
+			
+			// aapt resource value: 0x7f080017
+			public const int linearLayoutMail = 2131230743;
+			
+			// aapt resource value: 0x7f080014
+			public const int linearLayoutMap = 2131230740;
+			
+			// aapt resource value: 0x7f080020
+			public const int linearLayoutMore = 2131230752;
+			
+			// aapt resource value: 0x7f08002e
+			public const int linearLayoutSearch = 2131230766;
+			
+			// aapt resource value: 0x7f080011
+			public const int linearLayoutTag = 2131230737;
+			
+			// aapt resource value: 0x7f08002b
+			public const int linearLayoutTagSearch = 2131230763;
+			
+			// aapt resource value: 0x7f080024
+			public const int listView1 = 2131230756;
+			
+			// aapt resource value: 0x7f08002d
+			public const int listViewCompanies = 2131230765;
+			
+			// aapt resource value: 0x7f08002a
+			public const int mapContainer = 2131230762;
 			
 			// aapt resource value: 0x7f080001
 			public const int none = 2131230721;
@@ -307,11 +394,47 @@ namespace aBlist
 			// aapt resource value: 0x7f080002
 			public const int normal = 2131230722;
 			
+			// aapt resource value: 0x7f080008
+			public const int relativeLayout1 = 2131230728;
+			
 			// aapt resource value: 0x7f080003
 			public const int satellite = 2131230723;
 			
 			// aapt resource value: 0x7f080004
 			public const int terrain = 2131230724;
+			
+			// aapt resource value: 0x7f08001c
+			public const int textViewAbout = 2131230748;
+			
+			// aapt resource value: 0x7f08001f
+			public const int textViewCall = 2131230751;
+			
+			// aapt resource value: 0x7f080010
+			public const int textViewCategory = 2131230736;
+			
+			// aapt resource value: 0x7f08000d
+			public const int textViewConpanyName = 2131230733;
+			
+			// aapt resource value: 0x7f080019
+			public const int textViewMail = 2131230745;
+			
+			// aapt resource value: 0x7f080016
+			public const int textViewMap = 2131230742;
+			
+			// aapt resource value: 0x7f080022
+			public const int textViewMoreContent = 2131230754;
+			
+			// aapt resource value: 0x7f080021
+			public const int textViewMoreTitle = 2131230753;
+			
+			// aapt resource value: 0x7f080029
+			public const int textViewSubtitle = 2131230761;
+			
+			// aapt resource value: 0x7f080013
+			public const int textViewTag = 2131230739;
+			
+			// aapt resource value: 0x7f080028
+			public const int textViewTitle = 2131230760;
 			
 			static Id()
 			{
@@ -343,7 +466,16 @@ namespace aBlist
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Map = 2130903040;
+			public const int CompanyInfo = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int ListViewRowCompany = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Map = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int NavigationActionBar = 2130903043;
 			
 			static Layout()
 			{

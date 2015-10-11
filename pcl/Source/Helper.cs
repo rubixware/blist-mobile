@@ -5,7 +5,7 @@ namespace pcl
 {
 	public class Helper
 	{
-		public const string URL_HOST = "";
+		public const string URL_HOST = "http://rubixdev.cloudapp.net:8080";
 		public Helper ()
 		{
 		}
