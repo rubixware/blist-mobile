@@ -5,8 +5,30 @@ namespace pcl
 {
 	public class Category : Mobile
 	{
+		public string ImageName { get; set; }
+
 		public Category ()
 		{
+		}
+
+		public static System.Collections.Generic.List<Category> Categories { get{ return new System.Collections.Generic.List<Category>{
+					new Category(){
+						Id = 1,
+						Name = "Freelancer",
+						ImageName = "freelancer"
+					},
+					new Category(){
+						Id = 2,
+						Name = "Start up",
+						ImageName = "startup"
+					},
+					new Category(){
+						Id = 3,
+						Name = "PYME",
+						ImageName = "pyme"
+					}
+				};
+			}
 		}
 
 		[JsonIgnore]

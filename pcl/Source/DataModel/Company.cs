@@ -12,7 +12,7 @@ namespace pcl
 		[JsonProperty ("category")]
 		public int Category { get; set; }
 		[JsonProperty ("tags")]
-		public System.Collections.Generic.List<Tag> Tags { get; set; }
+		public System.Collections.Generic.List<string> Tags { get; set; }
 		[JsonProperty ("contact_id")]
 		public Contact ContactId { get; set; }
 		[JsonProperty ("address_id")]
@@ -29,7 +29,10 @@ namespace pcl
 		public Session Facebook { get; set; }
 		[JsonProperty ("website")]
 		public Session website { get; set; }
-
+		[JsonProperty ("latitude")]
+		public Session Latitude { get; set; }
+		[JsonProperty ("longitude")]
+		public Session Longitude { get; set; }
 
 		public Company ()
 		{
